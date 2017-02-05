@@ -2,7 +2,7 @@
 %You can close them all quickly by typing the command "close all"
 
 %TODO: Add Axis Labels
-%% Initialisation of the plotting script
+%% Init - RUN THIS FIRST
 R = 0.5; %set resistor and inductor values
 L = 1.5e-3;
 t0 = 0; %set start and finish times
