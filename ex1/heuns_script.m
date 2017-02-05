@@ -1,6 +1,8 @@
 %This file includes code to produce all of the plots required
 %You can close them all quickly by typing the command "close all"
 
+%TODO: Add Axis Labels
+%% Initialisation of the plotting script
 R = 0.5; %set resistor and inductor values
 L = 1.5e-3;
 t0 = 0; %set start and finish times
@@ -8,7 +10,7 @@ N = 100; %set number of intervals
 i0 = 0; %initial condition of current
 method = 'Heuns'; %define the method (for the figure window titles)
 
-%INPUT VOLTAGE f = 5 (step function)
+%% INPUT VOLTAGE f = 5 (step function)
 name = 'Vin = step(5V)'
 tf = 0.020; %set the time period
 f = @(t) 5; %define the input voltage as a function of time
@@ -22,7 +24,7 @@ title(name) %add a title
 hold off;
 legend('Vin','Vout'); %add a legend to the plot
 
-%INPUT VOLTAGE f = impulsive signal
+%% INPUT VOLTAGE f = impulsive signal
 name = 'Vin = 4V Impulse'
 tf = 0.035;
 f = @(t) 4*exp(-(t^2)/140e-6);
@@ -36,7 +38,7 @@ title(name)
 hold off;
 legend('Vin','Vout');
 
-%INPUT VOLTAGE f = decay signal
+%% INPUT VOLTAGE f = decay signal
 name = 'Vin = 4V Exponential Decay'
 tf = 0.01;
 f = @(t) 4*exp(-(t)/140e-6);
@@ -50,6 +52,7 @@ title(name)
 hold off;
 legend('Vin','Vout');
 
+%% Sine Wave Inputs of Varying Frequency
 %Create a subplot for all the sine wave inputs
 figure('Name',[method ': Sine Waves of Varying T'],'NumberTitle','off');
 subplot(2,2,1);
@@ -116,6 +119,7 @@ title(name)
 hold off;
 legend('Vin','Vout');
 
+%% Square Wave Inputs of Varying Frequency
 %Create a subplot for all the square wave inputs
 figure('Name',[method ': Square Waves of Varying T'],'NumberTitle','off');
 subplot(2,2,1);
@@ -182,6 +186,7 @@ title(name)
 hold off;
 legend('Vin','Vout');
 
+%% Sawtooth Inputs of Varying Frequency
 %Create a subplot for all the sawtooth wave inputs
 figure('Name',[method ': Sawtooth Waves of Varying T'],'NumberTitle','off');
 subplot(2,2,1);

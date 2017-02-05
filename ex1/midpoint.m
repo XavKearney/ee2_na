@@ -8,7 +8,7 @@ function [ t,vout ] = midpoint(f,t0,tf,N,i0,L,R)
     t = t0:h:tf; %generate an array of each of the times to plot
     
     i_L = ones(size(t)); %generate an array of the currents at each t
-    i_L(1) = i0 %set i_L @ t0
+    i_L(1) = i0; %set i_L @ t0
     
     vout=zeros(size(t)); %generate an output array of the correct size
     vout(1) = f(t0) - R*i0; %set vout @ t0
