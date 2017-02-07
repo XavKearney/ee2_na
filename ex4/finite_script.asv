@@ -18,7 +18,7 @@ xa = x0:h:xf; %define x array for values of x at one time instant
 
 U = zeros(size(xa,2),size(ta,2)); %define matrix U for y at every t and x
 
-%% Define the Initial Condition equation (uncomment)
+%% Define the Initial Condition equation (uncomment
 %y0 = @tent; %set y0 as the tent function
 
 y0 = @(x) sin(2*pi*x);
@@ -41,7 +41,7 @@ for m = 1:nk %iterate through each time step
     end
 end
 
-for m = 1:10:nk+1 %have to skip some otherwise graph too crowded
+for m = 1:10:nk+1
     plot(xa,U(:,m),'--') %plot each of the time steps on the same axis
     hold on;
 end
