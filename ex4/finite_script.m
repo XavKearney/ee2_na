@@ -8,7 +8,7 @@ uf = 0;
 
 nk = 100;
 t0 = 0;
-tf = 0.01;
+tf = 0.02;
 k = (tf-t0)/nk;
 ta = t0:k:tf; %define t array
 
@@ -18,7 +18,7 @@ xa = x0:h:xf; %define x array for values of x at one time instant
 
 U = zeros(size(xa,2),size(ta,2)); %define matrix U for y at every t and x
 
-%% Define the Initial Condition equation (uncomment)
+%% Define the Initial Conditions (uncomment)
 %y0 = @tent; %set y0 as the tent function
 
 y0 = @(x) sin(2*pi*x);
@@ -28,7 +28,7 @@ for j = 1:nx+1
     U(j,1) = y0(xa(j));
 end
 
-
+%% Calculate and Plot
 %set boundary condition values for all t at x0,xf
 for m = 1:nk+1
     U(1,m) = u0;
@@ -41,8 +41,12 @@ for m = 1:nk %iterate through each time step
     end
 end
 
+figure('name','Finite Differences: Heat Equation')
 for m = 1:10:nk+1 %have to skip some otherwise graph too crowded
     plot(xa,U(:,m),'--') %plot each of the time steps on the same axis
     hold on;
 end
 hold off;
+title('Y vs. X for the Heat Equation as t increases')
+xlabel('x')
+ylabel('y')
