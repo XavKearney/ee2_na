@@ -10,9 +10,14 @@ T = 130e-6; %set time period
 f = @(t) 5*cos(t*2*pi/T); %define input voltage function
 tf = T; %set the final time
 
+exact_c = -(5*T^2*R)/(T^2*R^2+4*pi^2*L^2);
+exact_i = @(t) (10*pi*T*L*sin(2*pi*t/T))/(T^2*R^2+4*pi^2*L^2)+... %continues onto next line
+    (5*T^2*R*cos(2*pi*t/T))/(T^2*R^2+4*pi^2*L^2)+...
+    exact_c*exp(-R*t/L);
+
 
 figure('Name','Error with Vin = Cosine','NumberTitle','off');
-for ind=1:6
+for ind=2:5
     N=10^ind;
     h=((tf-t0)/N);
     
@@ -21,7 +26,6 @@ for ind=1:6
     
     vin=arrayfun(f,t); %calculate the input voltages
     
-    exact_i = @(t) 5/(R^2+4*pi^2)*(R*cos(2*pi*t/L)+2*pi*sin(2*pi*t/L));
     %above defines the exact solution to the differential equation
     actual_i = arrayfun(exact_i,t); %get the exact current at every t
     actual_vout = vin - R*actual_i; %get the exact Vout at every t

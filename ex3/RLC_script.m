@@ -6,14 +6,14 @@ q0=500e-9;
 i0=0;
 
 N=1000;
-t0 = 0;
-tf = 0.1;
-h=(tf-t0)/N;
-ta = t0:h:tf;
+
 
 %% Input = 5V Step
 name = 'Vin = Step(5V)'
-
+t0 = 0;
+tf = 0.04;
+h=(tf-t0)/N;
+ta = t0:h:tf;
 ia = zeros(size(ta));
 qa = zeros(size(ta));
 vout = zeros(size(ta));
@@ -38,6 +38,11 @@ ylabel('Voltage (V)')
 
 %% Input = 5V Impulse
 name = 'Vin = 5V Impulse'
+
+t0 = 0;
+tf = 0.05;
+h=(tf-t0)/N;
+ta = t0:h:tf;
 
 ia = zeros(size(ta));
 qa = zeros(size(ta));
