@@ -9,7 +9,7 @@ N=1000;
 
 
 %% Input = 5V Step
-name = 'Vin = Step(5V)'
+name = 'Vin = Step(5V)';
 t0 = 0;
 tf = 0.04;
 h=(tf-t0)/N;
@@ -36,8 +36,10 @@ legend('Vin','Vout'); %add a legend to the plot
 xlabel('Time (s)')
 ylabel('Voltage (V)')
 
+print('plots\Step','-dpng'); %print to file
+
 %% Input = 5V Impulse
-name = 'Vin = 5V Impulse'
+name = 'Vin = 5V Impulse';
 
 t0 = 0;
 tf = 0.05;
@@ -66,6 +68,8 @@ legend('Vin','Vout'); %add a legend to the plot
 xlabel('Time (s)')
 ylabel('Voltage (V)')
 
+print('plots\Impulse','-dpng'); %print to file
+
 %% Input = Square Waves of Varying Frequency
 figure;
 subplot(2,2,1);
@@ -74,7 +78,7 @@ tf = 0.4;
 h=(tf-t0)/N;
 ta = t0:h:tf;
 % f = 5Hz
-name = 'Vin = Square Wave, A=5, f=5Hz'
+name = 'Vin = Square Wave, A=5, f=5Hz';
 ia = zeros(size(ta));
 qa = zeros(size(ta));
 vout = zeros(size(ta));
@@ -96,13 +100,13 @@ xlabel('Time (s)')
 ylabel('Voltage (V)')
 
 % f = 95Hz
-name = 'Vin = Square Wave, A=5, f=95Hz'
+name = 'Vin = Square Wave, A=5, f=95Hz';
 t0 = 0;
 tf = 0.05;
 h = (tf-t0)/N;
 ta = t0:h:tf;
 subplot(2,2,2);
-name = 'Vin = Square Wave, A=5, f=95Hz'
+name = 'Vin = Square Wave, A=5, f=95Hz';
 ia = zeros(size(ta));
 qa = zeros(size(ta));
 vout = zeros(size(ta));
@@ -125,13 +129,13 @@ xlabel('Time (s)')
 ylabel('Voltage (V)')
 
 % f = 500Hz
-name = 'Vin = Square Wave, A=5, f=500Hz'
+name = 'Vin = Square Wave, A=5, f=500Hz';
 t0 = 0;
 tf = 0.005;
 h = (tf-t0)/N;
 ta = t0:h:tf;
 subplot(2,2,3);
-name = 'Vin = Square Wave, A=5, f=95Hz'
+name = 'Vin = Square Wave, A=5, f=95Hz';
 ia = zeros(size(ta));
 qa = zeros(size(ta));
 vout = zeros(size(ta));
@@ -153,8 +157,10 @@ legend('Vin','Vout'); %add a legend to the plot
 xlabel('Time (s)')
 ylabel('Voltage (V)')
 
+print('plots\Square','-dpng'); %print to file
+
 %% Input = Sine Waves of Varying Frequency
-name = 'Vin = Sine Wave, A=5, f=5Hz'
+name = 'Vin = Sine Wave, A=5, f=5Hz';
 figure;
 subplot(2,2,1);
 t0 = 0;
@@ -162,7 +168,7 @@ tf = 0.4;
 h=(tf-t0)/N;
 ta = t0:h:tf;
 % f = 5Hz
-name = 'Vin = Sine Wave, A=5, f=5Hz'
+name = 'Vin = Sine Wave, A=5, f=5Hz';
 ia = zeros(size(ta));
 qa = zeros(size(ta));
 vout = zeros(size(ta));
@@ -184,7 +190,7 @@ xlabel('Time (s)')
 ylabel('Voltage (V)')
 
 % f = 95Hz
-name = 'Vin = Sine Wave, A=5, f=95Hz'
+name = 'Vin = Sine Wave, A=5, f=95Hz';
 t0 = 0;
 tf = 0.05;
 h = (tf-t0)/N;
@@ -212,7 +218,7 @@ xlabel('Time (s)')
 ylabel('Voltage (V)')
 
 % f = 500Hz
-name = 'Vin = Sine Wave, A=5, f=500Hz'
+name = 'Vin = Sine Wave, A=5, f=500Hz';
 t0 = 0;
 tf = 0.005;
 h = (tf-t0)/N;
@@ -238,3 +244,5 @@ hold off;
 legend('Vin','Vout'); %add a legend to the plot
 xlabel('Time (s)')
 ylabel('Voltage (V)')
+
+print('plots\Sin','-dpng'); %print to file

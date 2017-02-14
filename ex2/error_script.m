@@ -24,7 +24,7 @@ me_r = zeros(max_ind,1);
 
 
 figure('Name','Error with Vin = Cosine','NumberTitle','off',...
-    'units','normalized','outerposition',[0 0 1 1]);
+    'units','normalized','outerposition',[0 0 1 1]); %Set figure title and plot fullscreen
 for ind=1:max_ind
     N=10^ind;
     h=((tf-t0)/N);
