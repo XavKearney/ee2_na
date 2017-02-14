@@ -23,6 +23,7 @@ plot(t,vout,'*') %plot the output voltages
 title(name) %add a title
 hold off;
 legend('Vin','Vout'); %add a legend to the plot
+print([method '\plots\Step'],'-dpng')
 
 %% INPUT VOLTAGE f = impulsive signal
 name = 'Vin = 4V Impulse'

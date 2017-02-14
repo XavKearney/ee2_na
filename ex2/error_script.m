@@ -15,11 +15,21 @@ exact_i = @(t) (10*pi*T*L*sin(2*pi*t/T))/(T^2*R^2+4*pi^2*L^2)+... %continues ont
     (5*T^2*R*cos(2*pi*t/T))/(T^2*R^2+4*pi^2*L^2)+...
     exact_c*exp(-R*t/L);
 
+max_ind = 5; %define the maximum index
+ind2plot = 2; %define the index to plot for
+h_a = zeros(max_ind,1); %initialise array for step sizes
+me_h = zeros(max_ind,1); %initialise arrays for max errors
+me_m = zeros(max_ind,1);
+me_r = zeros(max_ind,1);
 
-figure('Name','Error with Vin = Cosine','NumberTitle','off');
-for ind=2:5
+
+figure('Name','Error with Vin = Cosine','NumberTitle','off',...
+    'units','normalized','outerposition',[0 0 1 1]);
+for ind=1:max_ind
     N=10^ind;
     h=((tf-t0)/N);
+    
+    h_a(ind) = h;
     
     %-----------HEUNS----------
     [t,vout] = heuns(f,t0,tf,N,i0,L,R); %get the output voltage array
@@ -33,9 +43,11 @@ for ind=2:5
     error = actual_vout - vout;
     [maximum,index] = max(abs(error)); %find the maximum error
     
-    if ind == 2
+    me_h(ind) = maximum;
+    
+    if ind == ind2plot
         subplot(3,3,1);
-        plot(t,vout,'*'); %plot the calculated vout with method
+        plot(t,vout,'o'); %plot the calculated vout with method
         hold on;
         plot(t,actual_vout,'--'); %plot the exact vout
         title('Heuns: Vin = Cosine, A=5, T=130\mus');
@@ -50,11 +62,6 @@ for ind=2:5
         hold off;
     end
     
-    subplot(3,3,7);
-    plot(log(h),log(maximum),'*');
-    xlabel('log(h)') % x-axis label
-    ylabel('log(Max Error)') % y-axis label
-    hold on;
     
     %------------MIDPOINT-----------
     [t,vout] = midpoint(f,t0,tf,N,i0,L,R); %get the output voltage array
@@ -63,9 +70,11 @@ for ind=2:5
     
     [maximum,index] = max(abs(error)); %find the maximum error
     
-    if ind == 2
+    me_m(ind) = maximum;
+    
+    if ind == ind2plot
         subplot(3,3,2);
-        plot(t,vout,'*') %plot the calculated vout with method
+        plot(t,vout,'o') %plot the calculated vout with method
         hold on;
         plot(t,actual_vout,'--'); %plot the exact vout
         title('Midpoint: Vin = Cosine, A=5, T=130\mus')
@@ -79,22 +88,17 @@ for ind=2:5
         legend('Error','Max Error','Location','southeast')
         hold off;
     end
-    subplot(3,3,8);
-    plot(log(h),log(maximum),'*');
-    
-    xlabel('log(h)') % x-axis label
-    ylabel('log(Max Error)') % y-axis label
-    hold on;
     
     %---------RALSTONS--------
     [t,vout] = ralstons(f,t0,tf,N,i0,L,R); %get the output voltage array
     error = actual_vout - vout;
     
     [maximum,index] = max(abs(error)); %find the maximum error
+    me_r(ind) = maximum;
     
-    if ind == 2
+    if ind == ind2plot
         subplot(3,3,3);
-        plot(t,vout,'*'); %plot the calculated vout with method
+        plot(t,vout,'o'); %plot the calculated vout with method
         hold on;
         plot(t,actual_vout,'--'); %plot the exact vout
         title('Ralstons: Vin = Cosine, A=5, T=130\mus')
@@ -109,10 +113,28 @@ for ind=2:5
         hold off;
     end
     
-    subplot(3,3,9);
-    plot(log(h),log(maximum),'*');
-    
-    xlabel('log(h)') % x-axis label
-    ylabel('log(Max Error)') % y-axis label
-    hold on;
+
 end
+subplot(3,3,7);
+plot(log(h_a),log(me_h),'o');
+xlabel('log(h)') % x-axis label
+ylabel('log(Max Error)') % y-axis label
+grad = polyfit(log(h_a),log(me_h),1); %calculate the gradient of the line
+text(-20,-10,['Gradient = ' num2str(grad(1))]);
+lsline %plot a least-squares regression line to match the gradient
+
+subplot(3,3,8);
+plot(log(h_a),log(me_m),'o');
+xlabel('log(h)') % x-axis label
+ylabel('log(Max Error)') % y-axis label
+grad = polyfit(log(h_a),log(me_m),1); %calculate the gradient of the line
+text(-20,-2,['Gradient = ' num2str(grad(1))]);
+lsline %plot a least-squares regression line to match the gradient
+
+subplot(3,3,9);
+plot(log(h_a),log(me_r),'o');
+xlabel('log(h)') % x-axis label
+ylabel('log(Max Error)') % y-axis label
+grad = polyfit(log(h_a),log(me_r),1); %calculate the gradient of the line
+text(-20,-2,['Gradient = ' num2str(grad(1))]);
+lsline %plot a least-squares regression line to match the gradient
