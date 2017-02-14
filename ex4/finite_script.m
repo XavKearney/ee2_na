@@ -22,9 +22,9 @@ xa = x0:h:xf; %define x array for values of x at one time instant
 U = zeros(size(xa,2),size(ta,2)); %define matrix U for y at every t and x
 
 %% Define the Initial Conditions (uncomment, change file name at the bottom)
-y0 = @tent; %set y0 as the tent function
+%y0 = @tent; %set y0 as the tent function
 
-%y0 = @(x) sin(2*pi*x);
+y0 = @(x) sin(2*pi*x);
 
 %set initial values of x at t = 0
 for j = 1:nx+1
@@ -53,4 +53,4 @@ hold off;
 title('Y vs. X for the Heat Equation as t increases')
 xlabel('x')
 ylabel('y')
-print('plots\Tent','-dpng'); %print to file
+print('plots\Sine','-dpng'); %print to file
