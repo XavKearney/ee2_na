@@ -7,7 +7,7 @@ function [ t,vout ] = heuns(f,t0,tf,N,i0,L,R)
     h=((tf-t0)/N); %get the step size
     t=t0:h:tf; %generate an array of each of the times to plot
     
-    i_L = ones(size(t)); %generate an array of the currents at each time
+    i_L = zeros(size(t)); %generate an array of the currents at each time
     i_L(1) = i0; %set i_L @ t0
     
     vout=zeros(size(t)); %generate an output array of the correct size
