@@ -15,7 +15,7 @@ tf = 0.020; %set the time period
 f = @(t) 5; %define the input voltage as a function of time
 [t,vout] = heuns(f,t0,tf,N,i0,L,R); %get the output voltage array
 vin=arrayfun(f,t); %calculate the input voltages
-figure('Name',[method ': ' name],'NumberTitle','off'); %create a figure with a descriptive window title
+figure('Name',[method ': ' name],'NumberTitle','off'); %create a figure with a descriptive window title and turn off the NumberTitle property
 plot(t,vin,'--'); %plot input voltages
 hold on; %wait for the second figure
 plot(t,vout,'*'); %plot the output voltages
