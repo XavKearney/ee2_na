@@ -11,9 +11,8 @@ f = @(t) 5*cos(t*2*pi/T); %define input voltage function
 tf = T; %set the final time
 
 exact_c = -(5*T^2*R)/(T^2*R^2+4*pi^2*L^2);
-exact_i = @(t) (10*pi*T*L*sin(2*pi*t/T))/(T^2*R^2+4*pi^2*L^2)+... %continues onto next line
-    (5*T^2*R*cos(2*pi*t/T))/(T^2*R^2+4*pi^2*L^2)+...
-    exact_c*exp(-R*t/L);
+exact_i = @(t) (10*pi*T*L*sin(2*pi*t/T)+5*T^2*R*cos(2*pi*t/T))/... %continue to next line
+    (T^2*R^2+4*pi^2*L^2)+ exact_c*exp(-R*t/L);
 
 max_ind = 5; %define the maximum index
 ind2plot = 2; %define the index to plot for
