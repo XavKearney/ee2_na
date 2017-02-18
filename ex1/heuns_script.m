@@ -137,7 +137,7 @@ print(['plots\' method '\Sine'],'-dpng');
 %Create a subplot for all the square wave inputs
 figure('Name',[method ': Square Waves of Varying T'],'NumberTitle','off');
 subplot(2,2,1);
-%INPUT VOLTAGE f = sine wave @ T=140\mus
+%INPUT VOLTAGE f = square wave @ T=140\mus
 name = 'Vin = Square, A=5, T=140\mus';
 tf = 140e-6;
 A=5; %set amplitude
