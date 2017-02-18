@@ -206,7 +206,7 @@ print(['plots\' method '\Square'],'-dpng');
 %Create a subplot for all the sawtooth wave inputs
 figure('Name',[method ': Sawtooth Waves of Varying T'],'NumberTitle','off');
 subplot(2,2,1);
-%INPUT VOLTAGE f = sine wave @ T=140\mus
+%INPUT VOLTAGE f = sawtooth wave @ T=140\mus
 name = 'Vin = Sawtooth, A=5, T=140\mus';
 tf = 2*140e-6;
 A=5; %set amplitude
