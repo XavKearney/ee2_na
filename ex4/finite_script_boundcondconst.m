@@ -20,8 +20,8 @@ U = zeros(size(xa,2),size(ta,2)); %define matrix U for y at every t and x
 
 %% Define the Initial Conditions (uncomment)
 %y0 = @tent; %set y0 as the tent function
-%y0 = @(x) sin(2*pi*x);
-y0 = @(x) abs(sin(2*pi*x));
+
+y0 = @(x) sin(2*pi*x);
 
 %set initial values of x at t = 0
 for j = 1:nx+1
@@ -31,11 +31,12 @@ end
 %% Calculate and Plot
 %set boundary condition values for all t at x0,xf
 for m = 1:nk+1
-    U(1,m) = u0;
-    U(nx+1,m) = uf;
+    t = ta(m);
+    U(1,m) =5;
+    U(nx+1,m) = -5;
 end
 
-for m = 1:nk %iterate through each time step
+for m = 1:nk-1 %iterate through each time step IS THIS INDEX RIGHT?
     for x = 2:nx %for each x coordinate
         U(x,m+1) = v*U(x-1,m)+(1-2*v)*U(x,m)+v*U(x+1,m); %calc for the next time step
     end
