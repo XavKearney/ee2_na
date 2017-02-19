@@ -6,9 +6,9 @@ h = (xf-x0)/nx; %calculte the x step size
 u0 = 0; %set boundary conditions at x0, xf
 uf = 0;
 
-nk = 100; %define the number of time steps
+nk = 250; %define the number of time steps
 t0 = 0;
-tf = 0.02;
+tf = 0.05;
 k = (tf-t0)/nk; %calc the difference between each time step
 ta = t0:k:tf; %define t array
 
@@ -23,8 +23,13 @@ U = zeros(size(xa,2),size(ta,2)); %define matrix U for y at every t and x
 
 %% Define the Initial Conditions (uncomment, change file name at the bottom)
 %y0 = @tent; %set y0 as the tent function
-%y0 = @(x) sin(2*pi*x);
-y0 = @(x) abs(sin(2*pi*x));
+y0 = @(x) sin(2*pi*x); %y0 as the sine function
+%y0 = @(x) abs(sin(2*pi*x)); %absolute value of sine function
+
+%OPTIONAL INITIAL CONDITIONS BELOW
+%y0 = @(x) cos(pi*x);
+
+
 
 %set initial values of x at t = 0
 for j = 1:nx+1
@@ -54,3 +59,7 @@ title('Y vs. X for the Heat Equation as t increases')
 xlabel('x')
 ylabel('y')
 print('plots\Sine','-dpng'); %print to file
+
+figure;
+surf(ta,xa,U); 
+hold on;
