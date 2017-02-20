@@ -22,12 +22,12 @@ xa = x0:h:xf; %define x array for values of x at one time instant
 U = zeros(size(xa,2),size(ta,2)); %define matrix U for y at every t and x
 
 %% Define the Initial Conditions (uncomment, change file name at the bottom)
-%y0 = @tent; %set y0 as the tent function
-y0 = @(x) sin(2*pi*x); %y0 as the sine function
-%y0 = @(x) abs(sin(2*pi*x)); %absolute value of sine function
+%y0 = @tent;name='Tent'; %set y0 as the tent function
+y0 = @(x) sin(2*pi*x);name='Sine'; %y0 as the sine function
+%y0 = @(x) abs(sin(2*pi*x));name='AbsSine'; %absolute value of sine function
 
 %OPTIONAL INITIAL CONDITIONS BELOW
-%y0 = @(x) cos(pi*x);
+%y0 = @(x) cos(pi*x);name='Cos';
 
 
 
@@ -55,11 +55,18 @@ for m = 1:10:nk+1 %have to skip some otherwise graph too crowded
     hold on;
 end
 hold off;
-title('Y vs. X for the Heat Equation as t increases')
+title(['Heat Equation Solutions for Multiple t, Initial: ' name])
 xlabel('x')
-ylabel('y')
-print('plots\Sine','-dpng'); %print to file
+ylabel('Temperature')
+print(['plots\' name],'-dpng'); %print to file
 
+%Below plots a surface (heatmap) plot for time on the x-axis
 figure;
-surf(ta,xa,U); 
-hold on;
+surf(ta,xa,U); %generate surface plot for all t and x
+title(['Heat Equation Surface Plot, Initial: ' name]);
+colormap jet; %make the colours go from hot to cold
+shading interp; %remove the lines between plots
+xlabel('t');
+ylabel('x');
+zlabel('Temperature');
+print(['plots\Surface_' name],'-dpng'); %print to file
