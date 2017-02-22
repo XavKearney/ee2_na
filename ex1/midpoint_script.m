@@ -15,11 +15,11 @@ tf = 0.020; %set the time period
 f = @(t) 5; %define the input voltage as a function of time
 [t,vout] = midpoint(f,t0,tf,N,i0,L,R); %get the output voltage array
 vin=arrayfun(f,t); %calculate the input voltages
-figure('Name',[method ': ' name],'NumberTitle','off'); %create a figure with a descriptive window title
+figure('Name',[method ': ' name],'NumberTitle','off'); %create a figure with a descriptive window title and turn off the NumberTitle property
 plot(t,vin,'--'); %plot input voltages
 hold on; %wait for the second figure
 plot(t,vout,'*'); %plot the output voltages
-title(name); %add a title
+title([method ': ' name]); %add a title
 xlabel('Time (s)');
 ylabel('Voltage (V)');
 hold off;
@@ -36,7 +36,7 @@ figure('Name',[method ': ' name],'NumberTitle','off');
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 xlabel('Time (s)');
 ylabel('Voltage (V)');
 hold off;
@@ -53,7 +53,7 @@ figure('Name',[method ': ' name],'NumberTitle','off');
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 xlabel('Time (s)');
 ylabel('Voltage (V)');
 hold off;
@@ -75,7 +75,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'o');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -91,7 +91,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--')
 hold on;
 plot(t,vout,'o');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -107,7 +107,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'o');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -123,7 +123,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'o');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -137,7 +137,7 @@ print(['plots\' method '\Sine'],'-dpng');
 %Create a subplot for all the square wave inputs
 figure('Name',[method ': Square Waves of Varying T'],'NumberTitle','off');
 subplot(2,2,1);
-%INPUT VOLTAGE f = sine wave @ T=140\mus
+%INPUT VOLTAGE f = square wave @ T=140\mus
 name = 'Vin = Square, A=5, T=140\mus';
 tf = 140e-6;
 A=5; %set amplitude
@@ -148,7 +148,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -164,7 +164,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -180,7 +180,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -196,7 +196,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -206,7 +206,7 @@ print(['plots\' method '\Square'],'-dpng');
 %Create a subplot for all the sawtooth wave inputs
 figure('Name',[method ': Sawtooth Waves of Varying T'],'NumberTitle','off');
 subplot(2,2,1);
-%INPUT VOLTAGE f = sine wave @ T=140\mus
+%INPUT VOLTAGE f = sawtooth wave @ T=140\mus
 name = 'Vin = Sawtooth, A=5, T=140\mus';
 tf = 2*140e-6;
 A=5; %set amplitude
@@ -217,7 +217,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -233,7 +233,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -249,7 +249,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -265,7 +265,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 

@@ -19,7 +19,7 @@ figure('Name',[method ': ' name],'NumberTitle','off'); %create a figure with a d
 plot(t,vin,'--'); %plot input voltages
 hold on; %wait for the second figure
 plot(t,vout,'*'); %plot the output voltages
-title(name); %add a title
+title([method ': ' name]); %add a title
 xlabel('Time (s)');
 ylabel('Voltage (V)');
 hold off;
@@ -36,7 +36,7 @@ figure('Name',[method ': ' name],'NumberTitle','off');
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 xlabel('Time (s)');
 ylabel('Voltage (V)');
 hold off;
@@ -53,7 +53,7 @@ figure('Name',[method ': ' name],'NumberTitle','off');
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 xlabel('Time (s)');
 ylabel('Voltage (V)');
 hold off;
@@ -75,7 +75,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'o');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -91,7 +91,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--')
 hold on;
 plot(t,vout,'o');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -107,7 +107,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'o');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -123,7 +123,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'o');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -148,7 +148,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -164,7 +164,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -180,7 +180,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -196,7 +196,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -217,7 +217,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -233,7 +233,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -249,7 +249,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
@@ -265,7 +265,7 @@ vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
 plot(t,vout,'*');
-title(name);
+title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
 
