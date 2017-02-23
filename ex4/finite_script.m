@@ -22,14 +22,13 @@ xa = x0:h:xf; %define x array for values of x at one time instant
 U = zeros(size(xa,2),size(ta,2)); %define matrix U for y at every t and x
 
 %% Define the Initial Conditions (uncomment, change file name at the bottom)
-%y0 = @tent;name='Tent'; %set y0 as the tent function
-y0 = @(x) sin(2*pi*x);name='Sine'; %y0 as the sine function
+y0 = @tent;name='Tent'; %set y0 as the tent function
+%y0 = @(x) sin(2*pi*x);name='Sine'; %y0 as the sine function
 %y0 = @(x) abs(sin(2*pi*x));name='AbsSine'; %absolute value of sine function
 
 %OPTIONAL INITIAL CONDITIONS BELOW
-%y0 = @(x) cos(pi*x);name='Cos';
-
-
+%y0 = @(x) cos(2*pi*x);name='Cos';u0=1;uf=1;
+%y0 = @(x) x == 0.5;name='Delta';
 
 %set initial values of x at t = 0
 for j = 1:nx+1
