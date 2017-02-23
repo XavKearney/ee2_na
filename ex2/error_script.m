@@ -49,6 +49,8 @@ for ind=1:max_ind
         plot(t,vout,'o'); %plot the calculated vout with method
         hold on;
         plot(t,actual_vout,'--'); %plot the exact vout
+        xlabel('Time (s)');
+        ylabel('Voltage (V)');
         title('Heuns: Vin = Cosine, A=5, T=130\mus');
         legend('Heuns Vout','Exact Vout');
         hold off;
@@ -59,6 +61,8 @@ for ind=1:max_ind
         title('Heuns Error');
         legend('Error','Max Error','Location','southeast');
         hold off;
+        xlabel('Time (s)');
+        ylabel('Voltage (V)');
     end
     
     
@@ -76,6 +80,8 @@ for ind=1:max_ind
         plot(t,vout,'o') %plot the calculated vout with method
         hold on;
         plot(t,actual_vout,'--'); %plot the exact vout
+        xlabel('Time (s)');
+        ylabel('Voltage (V)');
         title('Midpoint: Vin = Cosine, A=5, T=130\mus')
         legend('Midpoint Vout','Exact Vout')
         hold off;
@@ -86,6 +92,8 @@ for ind=1:max_ind
         title('Midpoint Error')
         legend('Error','Max Error','Location','southeast')
         hold off;
+        xlabel('Time (s)');
+        ylabel('Voltage (V)');
     end
     
     %---------RALSTONS--------
@@ -98,6 +106,8 @@ for ind=1:max_ind
     if ind == ind2plot
         subplot(3,3,3);
         plot(t,vout,'o'); %plot the calculated vout with method
+        xlabel('Time (s)');
+        ylabel('Voltage (V)');
         hold on;
         plot(t,actual_vout,'--'); %plot the exact vout
         title('Ralstons: Vin = Cosine, A=5, T=130\mus')
@@ -110,6 +120,8 @@ for ind=1:max_ind
         title('Ralstons Error')
         legend('Error','Max Error','Location','southeast')
         hold off;
+        xlabel('Time (s)');
+        ylabel('Voltage (V)');
     end
     
 
@@ -137,3 +149,4 @@ ylabel('log(Max Error)') % y-axis label
 grad = polyfit(log(h_a),log(me_r),1); %calculate the gradient of the line
 text(-20,-2,['Gradient = ' num2str(grad(1))]);
 lsline %plot a least-squares regression line to match the gradient
+print(['error'],'-dpng'); %print to file
