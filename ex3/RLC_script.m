@@ -1,4 +1,4 @@
-%% Init - RUN THIS FIRST
+%% RLC Script - Init
 R=230;
 C=4.5e-6;
 L=500e-3;
@@ -6,7 +6,6 @@ q0=500e-9;
 i0=0;
 
 N=1000;
-
 
 %% Input = 5V Step
 name = 'Vin = Step(5V)';
@@ -106,7 +105,6 @@ tf = 0.05;
 h = (tf-t0)/N;
 ta = t0:h:tf;
 subplot(2,2,2);
-name = 'Vin = Square Wave, A=5, f=95Hz';
 ia = zeros(size(ta));
 qa = zeros(size(ta));
 vout = zeros(size(ta));
@@ -135,7 +133,6 @@ tf = 0.005;
 h = (tf-t0)/N;
 ta = t0:h:tf;
 subplot(2,2,3);
-name = 'Vin = Square Wave, A=5, f=95Hz';
 ia = zeros(size(ta));
 qa = zeros(size(ta));
 vout = zeros(size(ta));
@@ -160,7 +157,6 @@ ylabel('Voltage (V)')
 print('plots\Square','-dpng'); %print to file
 
 %% Input = Sine Waves of Varying Frequency
-name = 'Vin = Sine Wave, A=5, f=5Hz';
 figure;
 subplot(2,2,1);
 t0 = 0;

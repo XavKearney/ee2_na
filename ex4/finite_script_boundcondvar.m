@@ -1,3 +1,4 @@
+%% Finite Script with Time Varying Boundary Conditions
 nx=50; %define the number of x coordinates to plot
 x0 = 0;
 xf = 1;

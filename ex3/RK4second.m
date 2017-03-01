@@ -19,7 +19,5 @@ function [ q_next,i_next ] = RK4second(h,L,R,C,qi,iL,ti,vf)
     
     q_next = qi + (k1_q+3*k2_q+3*k3_q+k4_q)/8;
     i_next = iL + (k1_i+3*k2_i+3*k3_i+k4_i)/8;
-
-
 end
 

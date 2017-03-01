@@ -1,3 +1,4 @@
+%% Finite Script - Initialise Variables
 nx=50; %define the number of x coordinates to plot
 x0 = 0;
 xf = 1;
@@ -21,7 +22,7 @@ xa = x0:h:xf; %define x array for values of x at one time instant
 
 U = zeros(size(xa,2),size(ta,2)); %define matrix U for y at every t and x
 
-%% Define the Initial Conditions (uncomment, change file name at the bottom)
+%% Define the Initial Conditions (uncomment to use)
 y0 = @tent;name='Tent'; %set y0 as the tent function
 %y0 = @(x) sin(2*pi*x);name='Sine'; %y0 as the sine function
 %y0 = @(x) abs(sin(2*pi*x));name='AbsSine'; %absolute value of sine function
