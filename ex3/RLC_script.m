@@ -50,7 +50,7 @@ qa = zeros(size(ta));
 vout = zeros(size(ta));
 ia(1) = i0;
 qa(1) = q0;
-tau = 3e-6; %DONT FORGET TO CHECK THIS
+tau = 3e-6;
 vf = @(t) 5*exp(-t^2/tau);
 for n=1:N
     [qa(n+1), ia(n+1)] = RK4second(h,L,R,C,qa(n),ia(n),ta(n),vf);
@@ -216,7 +216,7 @@ ylabel('Voltage (V)')
 % f = 500Hz
 name = 'Vin = Sine Wave, A=5, f=500Hz';
 t0 = 0;
-tf = 0.005;
+tf = 0.010;
 h = (tf-t0)/N;
 ta = t0:h:tf;
 subplot(2,2,3);
