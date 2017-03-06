@@ -26,8 +26,7 @@ function [ t,vout ] = ralstons(f,t0,tf,N,i0,L,R)
         
         i_L(n+1)=i_t + (k1+3*k2)/4; %combine k1 & k2 to get next i
         
-        vout(n+1) = v_step - R*i_L(n+1); %get the output voltage
-
+        vout(n+1) = f(t(n+1)) - R*i_L(n+1); %get the output voltage
     end
 end
 

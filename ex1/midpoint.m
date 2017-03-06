@@ -22,7 +22,7 @@ function [ t,vout ] = midpoint(f,t0,tf,N,i0,L,R)
         grad2=func(v_step,i_pred); % gradient at t+h/2
         i_L(n+1)=i_t+h*grad2; % new i from euler, using midpoint gradient
         
-        vout(n+1) = v_step - R*i_L(n+1); %get the output voltage
+        vout(n+1) = f(t(n+1)) - R*i_L(n+1); %get the output voltage
 
     end
 end

@@ -1,4 +1,3 @@
-%TODO: Add Axis labels
 
 R = 0.5; %set resistor and inductor values
 L = 1.5e-3;
@@ -14,7 +13,7 @@ exact_c = -(5*T^2*R)/(T^2*R^2+4*pi^2*L^2);
 exact_i = @(t) (10*pi*T*L*sin(2*pi*t/T)+5*T^2*R*cos(2*pi*t/T))/... %continue to next line
     (T^2*R^2+4*pi^2*L^2)+ exact_c*exp(-R*t/L);
 
-max_ind = 5; %define the maximum index
+max_ind = 6; %define the maximum index
 ind2plot = 2; %define the index to plot for
 h_a = zeros(max_ind,1); %initialise array for step sizes
 me_h = zeros(max_ind,1); %initialise arrays for max errors
@@ -139,7 +138,7 @@ plot(log(h_a),log(me_m),'o');
 xlabel('log(h)') % x-axis label
 ylabel('log(Max Error)') % y-axis label
 grad = polyfit(log(h_a),log(me_m),1); %calculate the gradient of the line
-text(-20,-2,['Gradient = ' num2str(grad(1))]);
+text(-20,-15,['Gradient = ' num2str(grad(1))]);
 lsline %plot a least-squares regression line to match the gradient
 
 subplot(3,3,9);
@@ -147,6 +146,6 @@ plot(log(h_a),log(me_r),'o');
 xlabel('log(h)') % x-axis label
 ylabel('log(Max Error)') % y-axis label
 grad = polyfit(log(h_a),log(me_r),1); %calculate the gradient of the line
-text(-20,-2,['Gradient = ' num2str(grad(1))]);
+text(-20,-15,['Gradient = ' num2str(grad(1))]);
 lsline %plot a least-squares regression line to match the gradient
 print(['error'],'-dpng'); %print to file
