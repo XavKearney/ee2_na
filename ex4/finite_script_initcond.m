@@ -1,3 +1,5 @@
+% Finite Script - with Non-Matching Initial Conditions
+%% Initialise Variables
 nx=50; %define the number of x coordinates to plot
 x0 = 0;
 xf = 1;

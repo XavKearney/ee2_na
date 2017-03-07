@@ -28,8 +28,8 @@ print(['plots\' method '\Step'],'-dpng'); %print to file
 
 %% INPUT VOLTAGE f = impulsive signal
 name = 'Vin = 4V Impulse';
-tf = 0.035;
-f = @(t) 4*exp(-(t^2)/140e-6);
+tf = 0.000035;
+f = @(t) 4*exp(-(t^2)/140e-12);
 [t,vout] = ralstons(f,t0,tf,N,i0,L,R);
 vin=arrayfun(f,t);
 figure('Name',[method ': ' name],'NumberTitle','off');
@@ -74,7 +74,7 @@ f = @(t) A*sin(t*2*pi/T);
 vin=arrayfun(f,t);
 plot(t,vin,'--')
 hold on;
-plot(t,vout,'o');
+plot(t,vout);
 title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
@@ -93,7 +93,7 @@ f = @(t) A*sin(t*2*pi/T);
 vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
-plot(t,vout,'o');
+plot(t,vout);
 title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
@@ -111,7 +111,7 @@ f = @(t) A*sin(t*2*pi/T);
 vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
-plot(t,vout,'o');
+plot(t,vout);
 title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
@@ -129,7 +129,7 @@ f = @(t) A*sin(t*2*pi/T);
 vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
-plot(t,vout,'o');
+plot(t,vout);
 title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
@@ -155,7 +155,7 @@ f = @(t) A*square(t*2*pi/T);
 vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
-plot(t,vout,'*');
+plot(t,vout);
 title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
@@ -173,7 +173,7 @@ f = @(t) A*square(t*2*pi/T);
 vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
-plot(t,vout,'*');
+plot(t,vout);
 title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
@@ -191,7 +191,7 @@ f = @(t) A*square(t*2*pi/T);
 vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
-plot(t,vout,'*');
+plot(t,vout);
 title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
@@ -209,7 +209,7 @@ f = @(t) A*square(t*2*pi/T);
 vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
-plot(t,vout,'*');
+plot(t,vout);
 title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
@@ -232,7 +232,7 @@ f = @(t) A*sawtooth(t*2*pi/T);
 vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
-plot(t,vout,'*');
+plot(t,vout);
 title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
@@ -251,7 +251,7 @@ f = @(t) A*sawtooth(t*2*pi/T);
 vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
-plot(t,vout,'*');
+plot(t,vout);
 title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
@@ -269,7 +269,7 @@ f = @(t) A*sawtooth(t*2*pi/T);
 vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
-plot(t,vout,'*');
+plot(t,vout);
 title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');
@@ -287,7 +287,7 @@ f = @(t) A*sawtooth(t*2*pi/T);
 vin=arrayfun(f,t);
 plot(t,vin,'--');
 hold on;
-plot(t,vout,'*');
+plot(t,vout);
 title([method ': ' name]); %add a title
 hold off;
 legend('Vin','Vout');

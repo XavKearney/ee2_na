@@ -1,4 +1,4 @@
-
+%% Error Analysis for Heun, Ralstons and Midpoint Methods
 R = 0.5; %set resistor and inductor values
 L = 1.5e-3;
 t0 = 0; %set start and finish times
